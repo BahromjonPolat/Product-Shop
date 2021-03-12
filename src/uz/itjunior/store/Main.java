@@ -3,6 +3,8 @@ package uz.itjunior.store;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static javafx.application.Platform.exit;
+
 public class Main {
 
     static Scanner scanner;
@@ -11,6 +13,7 @@ public class Main {
     static Product redWaterMelon;
     static Product bosvoldi;
     static Product melon;
+    static Product potato;
     static long budged;
 
     public static void main(String[] args) {
@@ -23,10 +26,12 @@ public class Main {
         redWaterMelon = new WaterMelon("Qizil tarvuz", 54, 12000);
         bosvoldi = new Melon("Bosvoldi", 120, 15000);
         melon = new Melon("Melon", 45, 5600);
+        potato = new Potato("Rodeo", 450, 4200);
 
         products.add(redWaterMelon);
         products.add(bosvoldi);
         products.add(melon);
+        products.add(potato);
 
         init();
 
@@ -37,6 +42,7 @@ public class Main {
         System.out.println("1. Mahsulotlar ro'yxati");
         System.out.println("2. Sotilgan Mahsulotlar");
         System.out.println("3. Budjet");
+        System.out.println("4. Chiqish");
 
         int choose = scanner.nextInt();
 
@@ -50,6 +56,9 @@ public class Main {
                 break;
             case 3:
                 budged();
+                break;
+            case 4:
+                exit();
                 break;
             default:
                 System.out.println("Bunday bo'lim yo'q");
