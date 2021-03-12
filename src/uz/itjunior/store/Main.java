@@ -2,8 +2,6 @@ package uz.itjunior.store;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Timer;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
 
@@ -12,6 +10,7 @@ public class Main {
     static ArrayList<Product> products;
     static Product redWaterMelon;
     static Product bosvoldi;
+    static Product melon;
     static long budged;
 
     public static void main(String[] args) {
@@ -23,9 +22,11 @@ public class Main {
 
         redWaterMelon = new WaterMelon("Qizil tarvuz", 54, 12000);
         bosvoldi = new Melon("Bosvoldi", 120, 15000);
+        melon = new Melon("Melon", 45, 5600);
 
         products.add(redWaterMelon);
         products.add(bosvoldi);
+        products.add(melon);
 
         init();
 
@@ -85,21 +86,12 @@ public class Main {
 
         for (int i = 0; i < products.size(); i++) {
 
-            if (choose == 1) {
-                System.out.println("Nechta " + products.get(0).getName() + " Sotmoqchisiz?");
+            if (choose - 1 == i) {
+                System.out.println("Nechta " + products.get(i).getName() + " Sotmoqchisiz?");
                 int quantity = scanner.nextInt();
-                budged += (long) products.get(0).getPrice() * quantity;
-                soldProducts.add(products.get(0).getName() + " " + quantity + " ta sotildi");
-                products.get(0).setQuantity(products.get(0).getQuantity() - quantity);
-                init();
-                break;
-
-            } else if (choose == 2) {
-                System.out.println("Nechta " + products.get(1).getName() + " Sotmoqchisiz?");
-                int quantity = scanner.nextInt();
-                budged += (long) products.get(1).getPrice() * quantity;
-                soldProducts.add(products.get(1).getName() + " " + quantity + " ta sotildi");
-                products.get(1).setQuantity(products.get(1).getQuantity() - quantity);
+                budged += (long) products.get(i).getPrice() * quantity;
+                soldProducts.add(products.get(i).getName() + " " + quantity + " ta sotildi");
+                products.get(i).setQuantity(products.get(i).getQuantity() - quantity);
                 init();
                 break;
             } else {
