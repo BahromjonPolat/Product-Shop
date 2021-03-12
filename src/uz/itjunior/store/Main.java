@@ -26,6 +26,8 @@ public class Main {
 
         products.add(redWaterMelon);
         products.add(bosvoldi);
+        
+        System.out.println("Assalomu alaykum!");
 
         init();
 
