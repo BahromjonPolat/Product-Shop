@@ -93,20 +93,15 @@ public class Main {
         System.out.println("Sotish");
         int choose = scanner.nextInt();
 
-        for (int i = 0; i < products.size(); i++) {
+        for (Product product : products) {
+            System.out.println("Nechta " + products.get(choose - 1).getName() + " Sotmoqchisiz?");
+            int quantity = scanner.nextInt();
+            budged += (long) products.get(choose - 1).getPrice() * quantity;
+            soldProducts.add(products.get(choose - 1).getName() + " " + quantity + " ta sotildi");
+            products.get(choose - 1).setQuantity(products.get(choose - 1).getQuantity() - quantity);
+            init();
+            break;
 
-            if (choose - 1 == i) {
-                System.out.println("Nechta " + products.get(i).getName() + " Sotmoqchisiz?");
-                int quantity = scanner.nextInt();
-                budged += (long) products.get(i).getPrice() * quantity;
-                soldProducts.add(products.get(i).getName() + " " + quantity + " ta sotildi");
-                products.get(i).setQuantity(products.get(i).getQuantity() - quantity);
-                init();
-                break;
-            } else {
-                System.out.println("Bunday mahsulot yo'q");
-                init();
-            }
         }
     }
 
