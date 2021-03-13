@@ -12,6 +12,7 @@ public class Main {
     static ArrayList<Product> products;
     static Product redWaterMelon;
     static Product bosvoldi;
+    static Product redpotato;
     static Product melon;
     static Product potato;
     static long budged;
@@ -27,11 +28,13 @@ public class Main {
         bosvoldi = new Melon("Bosvoldi", 120, 15000);
         melon = new Melon("Melon", 45, 5600);
         potato = new Potato("Rodeo", 450, 4200);
+        redpotato = new Potato("Red potato", 540, 4500);
 
         products.add(redWaterMelon);
         products.add(bosvoldi);
         products.add(melon);
         products.add(potato);
+        products.add(redpotato);
 
         init();
 
@@ -63,8 +66,6 @@ public class Main {
             default:
                 System.out.println("Bunday bo'lim yo'q");
         }
-
-
     }
 
     private static void budged() {
@@ -79,9 +80,7 @@ public class Main {
             System.out.println(soldProduct);
         }
         init();
-
     }
-
     static void showProduct() {
         for (Product product : products) {
             System.out.printf("Mahsulot nomi: %s - miqdori: %d ta - narxi: %d so'mdan \n",
@@ -101,7 +100,6 @@ public class Main {
             products.get(choose - 1).setQuantity(products.get(choose - 1).getQuantity() - quantity);
             init();
             break;
-
         }
     }
 
@@ -110,7 +108,6 @@ public class Main {
         for (int i = 0; i < str.length() + 2; i++) {
             System.out.print("-");
         }
-
         System.out.println();
         System.out.println(" " + str);
 
